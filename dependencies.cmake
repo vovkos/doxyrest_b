@@ -17,8 +17,8 @@ set (
 	LUA_LIB_NAME
 	EXPAT_INC_DIR
 	EXPAT_LIB_DIR
-	7Z_EXE
-	RAGEL_EXE
+	SPHINX_BUILD_EXE
+	PDFLATEX_EXE
 	)
 
 set (
@@ -28,8 +28,8 @@ set (
 		expat
 		lua
 	OPTIONAL
-		7z
-		ragel
+		sphinx
+		latex
 	)
 
 #...............................................................................
