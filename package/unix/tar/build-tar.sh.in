@@ -35,8 +35,8 @@ cp -rf $ROOT_DIR/package $CONTENTS_DIR
 cp -f $ROOT_DIR/CMakeLists.txt $CONTENTS_DIR
 cp -f $ROOT_DIR/dependencies.cmake $CONTENTS_DIR
 
-rm -f $CONTENTS_DIR/axl/.*
-rm -f $CONTENTS_DIR/doxyrest/.*
+rm -f $CONTENTS_DIR/axl/.git*
+rm -f $CONTENTS_DIR/doxyrest/.git*
 
 chown -R root:$(id -gn root) $TAR_DIR
 tar -cJf $OUT_FILE_PATH -C $TAR_DIR $TAR_SUB_DIR
