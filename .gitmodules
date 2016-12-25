@@ -1,6 +1,6 @@
 [submodule "axl"]
 	path = axl
-	url = git@git.tibbo.net:axl
+	url = git@github.com:vovkos/axl.git
 [submodule "doxyrest"]
 	path = doxyrest
-	url = git@git.tibbo.net:doxyrest
+	url = git@github.com:vovkos/doxyrest.git
