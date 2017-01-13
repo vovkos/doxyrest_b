@@ -27,6 +27,7 @@ set (
 	REQUIRED
 		expat
 		lua
+		ragel
 	OPTIONAL
 		sphinx
 		latex
