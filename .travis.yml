@@ -40,5 +40,5 @@ before_install:
 script:
     - mkdir build
     - cd build
-    - cmake ..
+    - cmake .. -DAXL_CPU=$TARGET_CPU -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
     - make

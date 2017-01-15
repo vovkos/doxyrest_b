@@ -38,5 +38,6 @@ else
 
 	echo "set (EXPAT_LIB_DIR /usr/lib/i386-linux-gnu)" >> paths.cmake
 	echo "set (LUA_LIB_DIR /usr/lib/i386-linux-gnu)" >> paths.cmake
+	echo "set (OPENSSL_INC_DIR DISABLED)" >> paths.cmake
 fi
 
