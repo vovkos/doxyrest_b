@@ -29,9 +29,13 @@ env:
 
 matrix:
     exclude:
-        - os: osx
+        - os:       osx
+          compiler: gcc
+
+        - os:  osx
           env: TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-        - os: osx
+
+        - os:  osx
           env: TARGET_CPU=x86 BUILD_CONFIGURATION=Release
 
 before_install:
@@ -40,5 +44,5 @@ before_install:
 script:
     - mkdir build
     - cd build
-    - cmake .. -DAXL_CPU=$TARGET_CPU -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
+    - cmake .. -DTARGET_CPU=$TARGET_CPU -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
     - make
