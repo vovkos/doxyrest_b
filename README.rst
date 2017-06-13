@@ -19,7 +19,7 @@ Doxyrest (bundle repo)
 Abstract
 --------
 
-``doxyrest_b`` is a helper *bundle repository* for the **Doxyrest** project. It contains both `doxyrest <https://github.com/vovkos/doxyrest>`_ and `axl <https://github.com/vovkos/axl>`_ as *git submodules* and provides a straightforward build sequence:
+``doxyrest_b`` is a helper *bundle repository* for the **Doxyrest** project. It contains both `Doxyrest <https://github.com/vovkos/doxyrest>`_ and `AXL <https://github.com/vovkos/axl>`_ as *git submodules* and provides a straightforward build sequence:
 
 .. code-block:: bash
 
@@ -36,4 +36,4 @@ Abstract
 	cmake ..
 	cmake --build .
 
-``doxyrest_b`` is automatically updated each time a new commit to the ``master`` branch of `doxyrest <https://github.com/vovkos/doxyrest>`_ successfully passes build and test stages on both `Travis CI <https://travis-ci.org/vovkos/doxyrest>`_ and `AppVeyor CI <https://ci.appveyor.com/project/vovkos/doxyrest>`_.
+``doxyrest_b`` is automatically updated each time a new commit to the ``master`` branch of `Doxyrest <https://github.com/vovkos/doxyrest>`_ successfully passes build and test stages on both `Travis CI <https://travis-ci.org/vovkos/doxyrest>`_ and `AppVeyor CI <https://ci.appveyor.com/project/vovkos/doxyrest>`_.
