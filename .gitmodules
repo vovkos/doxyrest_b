@@ -1,8 +1,8 @@
 [submodule "axl"]
 	path = axl
-	url = http://github.com/vovkos/axl
+	url = https://github.com/vovkos/axl
 	pushurl = git@github.com:vovkos/axl.git
 [submodule "doxyrest"]
 	path = doxyrest
-	url = http://github.com/vovkos/doxyrest
+	url = https://github.com/vovkos/doxyrest
 	pushurl = git@github.com:vovkos/doxyrest.git
