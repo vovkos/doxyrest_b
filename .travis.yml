@@ -38,11 +38,12 @@ matrix:
         - os:  osx
           env: TARGET_CPU=x86 BUILD_CONFIGURATION=Release
 
-before_install:
-    - source travis/install-$TRAVIS_OS_NAME.sh
+install:
+    - source doxyrest/ci/travis/install-$TRAVIS_OS_NAME.sh
 
 script:
     - mkdir build
     - cd build
     - cmake .. -DTARGET_CPU=$TARGET_CPU -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
     - make
+    - ctest --output-on-failure
