@@ -1,0 +1,65 @@
+#...............................................................................
+#
+#  This file is part of the Doxyrest toolkit.
+#
+#  Doxyrest is distributed under the MIT license.
+#  For details see accompanying license.txt file,
+#  the public copy of which is also available at:
+#  http://tibbo.com/downloads/archive/doxyrest/license.txt
+#
+#...............................................................................
+
+branches:
+    only:
+        - master
+
+image: Visual Studio 2015
+
+init:
+    - git config --global core.autocrlf input
+
+clone_folder: c:\projects\doxyrest
+clone_depth:  1
+
+matrix:
+    fast_finish: false
+
+platform:
+    - x64
+    - x86
+
+configuration:
+    - Debug
+    - Release
+
+environment:
+    matrix:
+        - TOOLCHAIN: msvc10
+        - TOOLCHAIN: msvc12
+        - TOOLCHAIN: msvc14
+
+install:
+    - git submodule update --init
+    - call doxyrest\ci\appveyor\set-env.bat %TOOLCHAIN% %PLATFORM%
+    - call doxyrest\ci\appveyor\install.bat
+
+build_script:
+    - set THIS_DIR=%CD%
+    - set THIS_DIR_CMAKE=%THIS_DIR:\=/%
+
+    - mkdir %DOWNLOAD_DIR%\expat\build
+    - cd %DOWNLOAD_DIR%\expat\build
+    - cmake .. %CMAKE_CONFIGURE_FLAGS% %EXPAT_CMAKE_FLAGS%
+    - cmake --build . %CMAKE_BUILD_FLAGS%
+
+    - cd %THIS_DIR%
+    - echo set (EXPAT_INC_DIR %DOWNLOAD_DIR_CMAKE%/expat/lib) >> paths.cmake
+    - echo set (EXPAT_LIB_DIR %DOWNLOAD_DIR_CMAKE%/expat/build/%CONFIGURATION%) >> paths.cmake
+
+    - mkdir build
+    - cd build
+    - cmake .. %CMAKE_CONFIGURE_FLAGS%
+    - cmake --build . %CMAKE_BUILD_FLAGS%
+
+test_script:
+    - ctest -C %CONFIGURATION% --output-on-failure
