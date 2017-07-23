@@ -39,7 +39,8 @@ matrix:
           env: TARGET_CPU=x86 BUILD_CONFIGURATION=Release
 
 install:
-    - source doxyrest/ci/travis/install-$TRAVIS_OS_NAME.sh
+    - source doxyrest/ci/travis/set-env.sh
+    - bash doxyrest/ci/travis/install-$TRAVIS_OS_NAME.sh
 
 script:
     - mkdir build
