@@ -6,3 +6,15 @@
 	path = doxyrest
 	url = https://github.com/vovkos/doxyrest
 	pushurl = git@github.com:vovkos/doxyrest.git
+[submodule "graco"]
+	path = graco
+	url = https://github.com/vovkos/graco
+	pushurl = git@github.com:vovkos/graco.git
+[submodule "luadoxyxml"]
+	path = luadoxyxml
+	url = https://github.com/vovkos/luadoxyxml
+	pushurl = git@github.com:vovkos/luadoxyxml.git
+[submodule "cmakedoxyxml"]
+	path = cmakedoxyxml
+	url = https://github.com/vovkos/cmakedoxyxml
+	pushurl = git@github.com:vovkos/cmakedoxyxml.git
