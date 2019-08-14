@@ -46,5 +46,21 @@ script:
     - mkdir build
     - cd build
     - cmake .. -DTARGET_CPU=$TARGET_CPU -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
-    - make
+    - cmake --build .
     - ctest --output-on-failure
+    - source ci/travis/build-source-package.sh
+
+deploy:
+    -   provider:     releases
+        file:         $DOXYREST_SOURCE_PACKAGE_FILE
+
+        skip_cleanup: true
+        overwrite:    true
+
+        api_key:
+            secure:   eFpWPF/1P1+DbHChlENnddunj4L8wdHHZvFUZoGXHwUgQ3xvo1CdKRtBo3Sv0HYftTlQjSrqCozx2tlunz9tNr6vKwLor7056MpqjmQsrujCVHhq1TsZd409ZkVR/3Dcl26yx6MMjVm43n6GAx3xLNna5hamq/G/7KggmAoJfWyT3bti4IIQrUw1w57Diyg1m778mXinAsKxy4IHFZR8LrxYKaNO4fATGBwNKJ3JUcTaE4Dap1IgDL8Mqu7c286ipzRFlJtTxRJPsMc3OkfSzgKQ2U7kfhU1pnRDEgd0D59MdUnU+4IZ5nQpbtNJejiEtozLz5YojKtDcvWEKujEQ/7bphEn/XwbCgH6dP6pximFvGphSCoKMjRkIqPN6oK1dQ7se63cCxNrc6r8/6C4GOIqrGQXf+7XCPLh2kdwJzOVG7fDvDWtd88szObROSWURBuMnxc3UP5WyS7zWkdgMMwIfuk96ZOwuRhdAWQ3K0/iHTK6PpCotGNqwKawJtgTj1v2mYXLoiecTbeKZ3ixfKlQX0XN5mx7/5kYKh5X0OGKgV7eTBSFF9Uc7gCjKld4vWrcTmi8V3OiZ5bzm+UGpWdIys3gHbE8sjVT3qvFuikyegfWniRDdvSWmcJrBm5/lIA9VjovapXmnQu3CAQ5MrzJp0QeDWArkmDjeeJMjZI=
+
+        on:
+            branch:    master
+            tags:      true
+            condition: $BUILD_SOURCE_PACKAGE == ON
