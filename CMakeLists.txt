@@ -15,10 +15,10 @@ cmake_minimum_required(VERSION 3.3)
 
 include(axl/cmake/axl_cmake.cmake NO_POLICY_SCOPE)
 
-add_subdirectory(axl)
+add_subdirectory(axl EXCLUDE_FROM_ALL)
 include(axl/cmake/import_axl.cmake)
 
-add_subdirectory(graco)
+add_subdirectory(graco EXCLUDE_FROM_ALL)
 include(graco/cmake/import_graco.cmake)
 
 add_subdirectory(luadoxyxml)
