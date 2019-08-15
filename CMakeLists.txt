@@ -19,6 +19,17 @@ set(BUILD_AXL_TESTS OFF CACHE BOOL "AXL tests disabled" FORCE)
 add_subdirectory(axl EXCLUDE_FROM_ALL)
 include(axl/cmake/import_axl.cmake)
 
+if(TARGET axl_glibc)
+	# force build axl_glibc
+	# we link to axl_glibc using CMAKE_STANDARD_LIBRARIES; as such,
+	# axl_glibc is not a direct dependency and will be skipped otherwise
+
+	add_custom_target(
+		force_build_axl_glibc ALL
+		DEPENDS axl_glibc
+		)
+endif()
+
 set(BUILD_GRACO_TESTS OFF CACHE BOOL "Graco tests disabled" FORCE)
 add_subdirectory(graco EXCLUDE_FROM_ALL)
 include(graco/cmake/import_graco.cmake)
