@@ -10,9 +10,9 @@
 #...............................................................................
 
 if  [ "$TRAVIS_TAG" != "" ] && \
-	[ "$TRAVIS_OS_NAME" == "linux" ] && \
-	[ "$BUILD_CONFIGURATION" == "Release" ] && \
-	[ "$CC" == "gcc" ]; then
+	[ "$TRAVIS_OS_NAME" == "osx" ] && \
+	[ "$BUILD_CONFIGURATION" == "Release" ]; then
+
 
 	# build package first
 
@@ -20,8 +20,8 @@ if  [ "$TRAVIS_TAG" != "" ] && \
 
 	# then get package file name
 
-	echo 'include(build/CPackSourceConfig.cmake)' >  print-package-file-name.cmake
-	echo 'message(${CPACK_PACKAGE_FILE_NAME})'    >> print-package-file-name.cmake
+	echo 'include(CPackSourceConfig.cmake)'    >  print-package-file-name.cmake
+	echo 'message(${CPACK_PACKAGE_FILE_NAME})' >> print-package-file-name.cmake
 
 	CPACK_PACKAGE_FILE_NAME=`cmake -P print-package-file-name.cmake 2>&1`
 
