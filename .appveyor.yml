@@ -15,8 +15,10 @@ branches:
 
 image: Visual Studio 2015
 
+# we are building source tarball on AppVeyor, so don't convert to CR-LF
+
 init:
-    - git config --global core.autocrlf input
+    - git config --global core.autocrlf false
 
 clone_folder: c:\projects\doxyrest
 clone_depth:  1
@@ -60,6 +62,26 @@ build_script:
     - cd build
     - cmake .. %CMAKE_CONFIGURE_FLAGS%
     - cmake --build . %CMAKE_BUILD_FLAGS%
+    - call ..\ci\appveyor\build-source-package.bat
 
 test_script:
     - ctest -C %CONFIGURATION% --output-on-failure
+
+artifacts:
+    -   path: $(DOXYREST_SOURCE_PACKAGE_FILE)
+        name: doxyrest_source_package
+
+deploy:
+    description: '$(APPVEYOR_REPO_TAG_NAME)'
+    provider: GitHub
+
+    auth_token:
+        secure: jpZmZjs4rexF7ix1wvN56hvAac2tGVAffQGsygfqMfR34Ls1SkvC1DQaf4On7RTB
+
+    artifact: doxyrest_source_package
+    force_update: true
+
+    on:
+        appveyor_repo_tag: true
+        toolchain: msvc10
+        configuration: Release

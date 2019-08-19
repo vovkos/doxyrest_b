@@ -13,7 +13,6 @@ if  [ "$TRAVIS_TAG" != "" ] && \
 	[ "$TRAVIS_OS_NAME" == "osx" ] && \
 	[ "$BUILD_CONFIGURATION" == "Release" ]; then
 
-
 	# build package first
 
 	cpack --config CPackSourceConfig.cmake

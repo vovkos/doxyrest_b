@@ -48,19 +48,20 @@ script:
     - cmake .. -DTARGET_CPU=$TARGET_CPU -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
     - cmake --build .
     - ctest --output-on-failure
-    - source ../ci/travis/build-source-package.sh
 
-deploy:
-    -   provider:     releases
-        file:         $DOXYREST_SOURCE_PACKAGE_FILE
-
-        skip_cleanup: true
-        overwrite:    true
-
-        api_key:
-            secure:   "nw9VWkU4drbyVJ3kxiw0RpeFbPUaUb7pZC4rmcYuyZWu+SJ9q5N+waryuecZSk71gTaiRlw5IOz4rSpXTt+23dMzGJgv9bCkX8IIvvkJBadiEmnvUsxXwl1uV6KHAMXmbcT3QTAh9R27lrshimRbs2/9u1IcGD7U6reWnODNIXnnswrMWVEFNIvc38OegdQAY5RUNiGB+/VpBUrhiPDcJ8w7d0mykOLPLPPZsec1nElHyGIwx8wvdMmLOsxglCZ3cS4BJRqz9rXa08rSQuNM+RyCBZgeUMvR19o0nZ3wcDXlasem8DfTwMfaXuDf8czfjVCPcq0X7rFImVGs0NPennWA8o+lAgmaFS9qWKYZcNcycFCWNIImeHg7qzmMnwerCcNlcHvDeg8+NfOne5cGffP7CI9aYFo7ONRxZbU6LJeD6wTqXWW6+qno15XPnYurNuXEg9iUWv75+sJAJvc8UKXg5eNtqkS1YkeK472O4J4ejyarC8VJUGIP4u2fiCI+9187zy/NAQza0iNoHqp1yRJg0pAT6Wad88I7AJOOZ2UnkNGjXxj4M3suYHkY6u4jcM97HAZLwlPpNTcuiuR18TeGuCLNOoHSMopsjVPAUm1LEvvnh1Lhqj7RTtrws6Snl2WSOwvhkNz3G5ognTiFnynRhRsG5ACrstvth8qwwtI="
-
-        on:
-            branch:    master
-            tags:      true
-            condition: $BUILD_SOURCE_PACKAGE == ON
+#     - source ../ci/travis/build-source-package.sh
+#
+# deploy:
+#     -   provider:     releases
+#         file:         $DOXYREST_SOURCE_PACKAGE_FILE
+#
+#         skip_cleanup: true
+#         overwrite:    true
+#
+#         api_key:
+#             secure:   "nw9VWkU4drbyVJ3kxiw0RpeFbPUaUb7pZC4rmcYuyZWu+SJ9q5N+waryuecZSk71gTaiRlw5IOz4rSpXTt+23dMzGJgv9bCkX8IIvvkJBadiEmnvUsxXwl1uV6KHAMXmbcT3QTAh9R27lrshimRbs2/9u1IcGD7U6reWnODNIXnnswrMWVEFNIvc38OegdQAY5RUNiGB+/VpBUrhiPDcJ8w7d0mykOLPLPPZsec1nElHyGIwx8wvdMmLOsxglCZ3cS4BJRqz9rXa08rSQuNM+RyCBZgeUMvR19o0nZ3wcDXlasem8DfTwMfaXuDf8czfjVCPcq0X7rFImVGs0NPennWA8o+lAgmaFS9qWKYZcNcycFCWNIImeHg7qzmMnwerCcNlcHvDeg8+NfOne5cGffP7CI9aYFo7ONRxZbU6LJeD6wTqXWW6+qno15XPnYurNuXEg9iUWv75+sJAJvc8UKXg5eNtqkS1YkeK472O4J4ejyarC8VJUGIP4u2fiCI+9187zy/NAQza0iNoHqp1yRJg0pAT6Wad88I7AJOOZ2UnkNGjXxj4M3suYHkY6u4jcM97HAZLwlPpNTcuiuR18TeGuCLNOoHSMopsjVPAUm1LEvvnh1Lhqj7RTtrws6Snl2WSOwvhkNz3G5ognTiFnynRhRsG5ACrstvth8qwwtI="
+#
+#         on:
+#             branch:    master
+#             tags:      true
+#             condition: $BUILD_SOURCE_PACKAGE == ON
