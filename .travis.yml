@@ -9,9 +9,9 @@
 #
 #...............................................................................
 
-dist:     trusty
-sudo:     required
-language: cpp
+dist:      trusty
+osx_image: xcode11.3
+language:  cpp
 
 os:
     - linux
