@@ -36,6 +36,8 @@ jobs:
             shell: cmd
             run: |
                 set CONFIGURATION=${{matrix.CONFIGURATION}}
+                set DOWNLOAD_DIR=%CD:~0,2%\downloads
+                set DOWNLOAD_DIR_CMAKE=%DOWNLOAD_DIR:\=/%
                 set THIS_DIR=%CD%
                 set THIS_DIR_CMAKE=%THIS_DIR:\=/%
 
