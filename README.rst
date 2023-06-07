@@ -11,10 +11,8 @@
 
 Doxyrest (bundle repo)
 ======================
-.. image:: https://travis-ci.org/vovkos/doxyrest_b.svg?branch=master
-	:target: https://travis-ci.org/vovkos/doxyrest_b
-.. image:: https://ci.appveyor.com/api/projects/status/a4krufn6mmenenep?svg=true
-	:target: https://ci.appveyor.com/project/vovkos/doxyrest-b
+.. image:: https://github.com/vovkos/doxyrest_b/actions/workflows/ci.yml/badge.svg
+	:target: https://github.com/vovkos/doxyrest_b/actions/workflows/ci.yml
 
 Abstract
 --------
@@ -36,9 +34,4 @@ Abstract
 	cmake ..
 	cmake --build .
 
-``doxyrest_b`` is automatically updated each time a new commit to the ``master`` branch of `Doxyrest <https://github.com/vovkos/doxyrest>`_ successfully passes build and test stages on both `Travis CI <https://travis-ci.org/vovkos/doxyrest>`_ and `AppVeyor CI <https://ci.appveyor.com/project/vovkos/doxyrest>`_.
-
-Latest Release
---------------
-
-`Doxyrest 2.1.2 <https://github.com/vovkos/doxyrest_b/releases/tag/doxyrest-2.1.2>`__
+``doxyrest_b`` is automatically updated each time a new commit to the ``master`` branch of `Doxyrest <https://github.com/vovkos/doxyrest>`_ successfully passes build and test stages on `GitHub Actions <https://github.com/vovkos/doxyrest/actions>`_.
