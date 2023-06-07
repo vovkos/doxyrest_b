@@ -34,4 +34,4 @@ Abstract
 	cmake ..
 	cmake --build .
 
-``doxyrest_b`` is automatically updated each time a new commit to the ``master`` branch of `Doxyrest <https://github.com/vovkos/doxyrest>`_ successfully passes build and test stages on `GitHub Actions <https://github.com/vovkos/doxyrest/actions>`_.
+``doxyrest_b`` is automatically updated each time a new commit to the ``master`` branch of `Doxyrest <https://github.com/vovkos/doxyrest>`_ successfully passes build and test stages on `GitHub Actions <https://github.com/vovkos/doxyrest/actions/workflows/ci.yml>`_.
