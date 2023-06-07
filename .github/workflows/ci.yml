@@ -41,6 +41,15 @@ jobs:
 
                 call doxyrest\ci\github-actions\set-env.bat msvc16 ${{matrix.TARGET_CPU}}
 
+                mkdir %DOWNLOAD_DIR%\expat\build
+                cd %DOWNLOAD_DIR%\expat\build
+                cmake .. %CMAKE_CONFIGURE_FLAGS% %EXPAT_CMAKE_FLAGS% || exit
+                cmake --build . %CMAKE_BUILD_FLAGS% || exit
+
+                cd %THIS_DIR%
+                echo set (EXPAT_INC_DIR %DOWNLOAD_DIR_CMAKE%/expat/lib) >> paths.cmake
+                echo set (EXPAT_LIB_DIR %DOWNLOAD_DIR_CMAKE%/expat/build/%CONFIGURATION%) >> paths.cmake
+
                 mkdir build
                 cd build
                 cmake .. %CMAKE_CONFIGURE_FLAGS% || exit
