@@ -29,7 +29,7 @@ jobs:
             shell: cmd
             run: |
                 set CONFIGURATION=${{matrix.CONFIGURATION}}
-                call doxyrest\ci\github-actions\set-env.bat msvc16 ${{matrix.TARGET_CPU}}
+                call doxyrest\ci\github-actions\set-env.bat ${{matrix.TARGET_CPU}}
                 call doxyrest\ci\github-actions\install-windows.bat
 
         -   name: Build and test
@@ -41,7 +41,7 @@ jobs:
                 set THIS_DIR=%CD%
                 set THIS_DIR_CMAKE=%THIS_DIR:\=/%
 
-                call doxyrest\ci\github-actions\set-env.bat msvc16 ${{matrix.TARGET_CPU}}
+                call doxyrest\ci\github-actions\set-env.bat ${{matrix.TARGET_CPU}}
                 call axl\ci\github-actions\build-lua.bat
 
                 mkdir %DOWNLOAD_DIR%\expat\build
