@@ -8,6 +8,7 @@ jobs:
     windowsBuild:
         name: Windows Build
         runs-on: windows-2022
+
         strategy:
             fail-fast: false
             matrix:
@@ -21,7 +22,7 @@ jobs:
 
         steps:
         -   name: Checkout repo
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
                 submodules: true
 
@@ -61,7 +62,8 @@ jobs:
 
     linuxBuild:
         name: Linux Build
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-24.04
+
         strategy:
             fail-fast: false
             matrix:
@@ -79,7 +81,7 @@ jobs:
 
         steps:
         -   name: Checkout repo
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
                 submodules: true
 
@@ -104,7 +106,8 @@ jobs:
 
     macOsBuild:
         name: macOS Build
-        runs-on: macos-13
+        runs-on: macos-latest
+
         strategy:
             fail-fast: false
             matrix:
@@ -114,7 +117,7 @@ jobs:
 
         steps:
         -   name: Checkout repo
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
                 submodules: true
 
