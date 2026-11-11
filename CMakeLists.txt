@@ -29,6 +29,7 @@ if(GCC_LINK_GLIBC_WRAPPERS)
 		DEPENDS
 			axl_glibc_libc
 			axl_glibc_libm
+			axl_glibc_libpthread
 	)
 endif()
 
